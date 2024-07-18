@@ -6,7 +6,7 @@
 /*   By: moabdels <moabdels@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 16:28:27 by moabdels          #+#    #+#             */
-/*   Updated: 2024/07/18 15:38:01 by moabdels         ###   ########.fr       */
+/*   Updated: 2024/07/18 15:50:09 by moabdels         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char	*get_line_from_node(t_list *list_node)
 
 	if (list_node == NULL)
 		return (NULL);
-	line_len = get_line_len(list_node);
+	line_len = len_to_next_line(list_node);
 	next_line = malloc(line_len + 1);
 	if (next_line == NULL)
 		return (NULL);
