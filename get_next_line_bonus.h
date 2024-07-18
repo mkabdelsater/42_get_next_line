@@ -6,7 +6,7 @@
 /*   By: moabdels <moabdels@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 16:28:21 by moabdels          #+#    #+#             */
-/*   Updated: 2024/07/18 11:51:38 by moabdels         ###   ########.fr       */
+/*   Updated: 2024/07/18 11:55:19 by moabdels         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,4 +26,3 @@ typedef struct s_list
 	char			*str_buf;
 	struct s_list	*next;
 }	t_list
-
