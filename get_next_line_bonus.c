@@ -6,11 +6,28 @@
 /*   By: moabdels <moabdels@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 16:28:27 by moabdels          #+#    #+#             */
-/*   Updated: 2024/07/18 14:38:00 by moabdels         ###   ########.fr       */
+/*   Updated: 2024/07/18 14:45:26 by moabdels         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line_bonus.h"
+
+void	append_node(t_list **list, char *buffer)
+{
+	t_list	*new_node;
+	t_list	*last_node;
+
+	last_node = get_last_node(*list);
+	new_node = malloc(sizeof(t_list));
+	if (new_node == NULL)
+		return ;
+	if (last_node == NULL)
+		*list = new_node;
+	else
+		last_node->next = new_node;
+	new_node->str_buf = buffer;
+	new_node->next = NULL;
+}
 
 void	populate_list(t_list **list, int fd)
 {
