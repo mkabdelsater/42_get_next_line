@@ -6,11 +6,26 @@
 /*   By: moabdels <moabdels@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 16:28:27 by moabdels          #+#    #+#             */
-/*   Updated: 2024/07/18 14:45:26 by moabdels         ###   ########.fr       */
+/*   Updated: 2024/07/18 15:35:06 by moabdels         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line_bonus.h"
+
+char	*get_line_from_node(t_list *list)
+{
+	int		line_len;
+	char	*next_line;
+
+	if (list == NULL)
+		return (NULL);
+	line_len = get_line_len(list);
+	next_line = malloc(line_len + 1);
+	if (next_line == NULL)
+		return (NULL);
+	copy_str_to_node(list, next_line);
+	return (next_line);
+}
 
 void	append_node(t_list **list, char *buffer)
 {
@@ -63,7 +78,7 @@ char	*get_next_line(int fd)
 	populate_list(&list, fd);
 	if (list == NULL)
 		return (NULL);
-	next_line = get_line(list);
+	next_line = get_line_from_node(list);
 	polish_list(&list);
 	return (next_line);
 }
