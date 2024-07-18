@@ -6,24 +6,24 @@
 /*   By: moabdels <moabdels@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 16:28:27 by moabdels          #+#    #+#             */
-/*   Updated: 2024/07/18 15:35:06 by moabdels         ###   ########.fr       */
+/*   Updated: 2024/07/18 15:38:01 by moabdels         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line_bonus.h"
 
-char	*get_line_from_node(t_list *list)
+char	*get_line_from_node(t_list *list_node)
 {
 	int		line_len;
 	char	*next_line;
 
-	if (list == NULL)
+	if (list_node == NULL)
 		return (NULL);
-	line_len = get_line_len(list);
+	line_len = get_line_len(list_node);
 	next_line = malloc(line_len + 1);
 	if (next_line == NULL)
 		return (NULL);
-	copy_str_to_node(list, next_line);
+	copy_str_to_node(list_node, next_line);
 	return (next_line);
 }
 
