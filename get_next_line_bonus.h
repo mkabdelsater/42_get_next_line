@@ -6,7 +6,7 @@
 /*   By: moabdels <moabdels@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 16:28:21 by moabdels          #+#    #+#             */
-/*   Updated: 2024/07/18 11:55:19 by moabdels         ###   ########.fr       */
+/*   Updated: 2024/07/18 14:36:41 by moabdels         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 10
-#endif
+# endif
 
 # include <fcntl.h>
 # include <stdlib.h>
@@ -25,4 +25,10 @@ typedef struct s_list
 {
 	char			*str_buf;
 	struct s_list	*next;
-}	t_list
+}	t_list;
+
+void	append_node(t_list **list, char *buffer);
+void	populate_list(t_list **list, int fd);
+char	*get_next_line(int fd);
+
+#endif
