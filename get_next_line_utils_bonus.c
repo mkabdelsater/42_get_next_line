@@ -6,11 +6,31 @@
 /*   By: moabdels <moabdels@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 16:28:24 by moabdels          #+#    #+#             */
-/*   Updated: 2024/07/18 15:59:48 by moabdels         ###   ########.fr       */
+/*   Updated: 2024/07/19 12:48:06 by moabdels         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line_bonus.h"
+
+int	found_newline(t_list *list_node)
+{
+	int	i_index;
+
+	if (list_node == NULL)
+		return (0);
+	while (list_node)
+	{
+		i_index = 0;
+		while (list_node->str_buf[i_index] && i_index < BUFFER_SIZE)
+		{
+			if (list_node->str_buf[i_index] == '\n')
+				return (1);
+			i_index++;
+		}
+		list_node = list_node->next;
+	}
+	return (0);
+}
 
 void	copy_str_to_node(t_list *list_node, char *str)
 {
