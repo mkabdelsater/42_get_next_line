@@ -6,7 +6,7 @@
 /*   By: moabdels <moabdels@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 16:28:27 by moabdels          #+#    #+#             */
-/*   Updated: 2024/07/19 15:12:45 by moabdels         ###   ########.fr       */
+/*   Updated: 2024/07/19 16:09:08 by moabdels         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,9 @@ void	polish_list(t_list **list)
 	last_node = get_last_node(*list);
 	i_index = 0;
 	j_index = 0;
-	while (last_node->str_buf[i_index] != '\0'
-		&& last_node->str_buf[i_index] != '\n')
+	while (last_node->str_buf[i_index] && last_node->str_buf[i_index] != '\n')
 		i_index++;
-	while (last_node->str_buf[i_index] != '\0' && last_node->str_buf[++i_index])
+	while (last_node->str_buf[i_index] && last_node->str_buf[++i_index])
 		new_str[j_index++] = last_node->str_buf[i_index];
 	new_str[j_index] = '\0';
 	cleaned_node->str_buf = new_str;
