@@ -6,11 +6,45 @@
 /*   By: moabdels <moabdels@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 16:28:27 by moabdels          #+#    #+#             */
-/*   Updated: 2024/07/18 15:51:14 by moabdels         ###   ########.fr       */
+/*   Updated: 2024/07/19 12:43:26 by moabdels         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line_bonus.h"
+
+/**
+ * 1. malloc for a new node
+ * 2. copy chars after '\n' from last node to cleaned_node
+ * 3. free all nodes and make list point to new node
+ * when gnl is called again we start from where we left off thanks to the
+ * read function
+ */
+
+void	polish_list(t_list **list)
+{
+	t_list	*last_node;
+	t_list	*cleaned_node;
+	int		i_index;
+	int		j_index;
+	char	*new_str;
+
+	new_str = malloc(BUFFER_SIZE + 1);
+	cleaned_node = malloc(sizeof(t_list));
+	if (new_str == NULL || cleaned_node == NULL)
+		return ;
+	last_node = get_last_node(*list);
+	i_index = 0;
+	j_index = 0;
+	while (last_node->str_buf[i_index] != '\0'
+		&& last_node->str_buf[i_index] != '\n')
+		i_index++;
+	while (last_node->str_buf[i_index] != '\0' && last_node->str_buf[++i_index])
+		new_str[j_index++] = last_node->str_buf[i_index];
+	new_str[j_index] = '\0';
+	cleaned_node->str_buf = new_str;
+	cleaned_node->next = NULL;
+	dealloc(list, cleaned_node, new_str);
+}
 
 char	*get_line_from_node(t_list *list_node)
 {
