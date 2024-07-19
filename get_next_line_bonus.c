@@ -6,7 +6,7 @@
 /*   By: moabdels <moabdels@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 16:28:27 by moabdels          #+#    #+#             */
-/*   Updated: 2024/07/19 17:58:19 by moabdels         ###   ########.fr       */
+/*   Updated: 2024/07/19 18:04:34 by moabdels         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ void	populate_list(t_list **list, int fd)
 		if (buffer == NULL)
 			return ;
 		char_read = read(fd, buffer, BUFFER_SIZE);
-		if (!char_read)
+		if (char_read <= 0)
 		{
 			free(buffer);
 			return ;

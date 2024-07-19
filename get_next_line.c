@@ -6,7 +6,7 @@
 /*   By: moabdels <moabdels@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 16:28:27 by moabdels          #+#    #+#             */
-/*   Updated: 2024/07/19 17:59:17 by moabdels         ###   ########.fr       */
+/*   Updated: 2024/07/19 18:24:25 by moabdels         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	polish_list(t_list **list)
 	int		j_index;
 	char	*new_str;
 
-	new_str = malloc(BUFFER_SIZE + 1);
+	new_str = malloc(sizeof(char) * (BUFFER_SIZE + 1));
 	cleaned_node = malloc(sizeof(t_list));
 	if (new_str == NULL || cleaned_node == NULL)
 		return ;
@@ -53,7 +53,7 @@ char	*get_line_from_node(t_list *list_node)
 	if (list_node == NULL)
 		return (NULL);
 	line_len = len_to_next_line(list_node);
-	next_line = malloc(line_len + 1);
+	next_line = malloc(sizeof(char) * (line_len + 1));
 	if (next_line == NULL)
 		return (NULL);
 	copy_str_to_node(list_node, next_line);
@@ -88,7 +88,7 @@ void	populate_list(t_list **list, int fd)
 		if (buffer == NULL)
 			return ;
 		char_read = read(fd, buffer, BUFFER_SIZE);
-		if (!char_read)
+		if (char_read <= 0)
 		{
 			free(buffer);
 			return ;
