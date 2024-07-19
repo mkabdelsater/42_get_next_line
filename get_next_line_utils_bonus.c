@@ -6,7 +6,7 @@
 /*   By: moabdels <moabdels@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 16:28:24 by moabdels          #+#    #+#             */
-/*   Updated: 2024/07/19 12:48:06 by moabdels         ###   ########.fr       */
+/*   Updated: 2024/07/19 14:54:36 by moabdels         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,15 @@ int	found_newline(t_list *list_node)
 		list_node = list_node->next;
 	}
 	return (0);
+}
+
+t_list	*find_last_node(t_list *list_node)
+{
+	if (list_node == NULL)
+		return (NULL);
+	while (list_node->next)
+		list_node = list_node->next;
+	return (list_node);
 }
 
 void	copy_str_to_node(t_list *list_node, char *str)
