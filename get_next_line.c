@@ -6,7 +6,7 @@
 /*   By: moabdels <moabdels@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 16:28:27 by moabdels          #+#    #+#             */
-/*   Updated: 2024/07/19 16:09:08 by moabdels         ###   ########.fr       */
+/*   Updated: 2024/07/19 17:59:17 by moabdels         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ void	populate_list(t_list **list, int fd)
 
 	while (!found_newline(*list))
 	{
-		buffer = malloc(BUFFER_SIZE + 1);
+		buffer = malloc(sizeof(char) * (BUFFER_SIZE + 1));
 		if (buffer == NULL)
 			return ;
 		char_read = read(fd, buffer, BUFFER_SIZE);

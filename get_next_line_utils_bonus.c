@@ -6,7 +6,7 @@
 /*   By: moabdels <moabdels@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 16:28:24 by moabdels          #+#    #+#             */
-/*   Updated: 2024/07/19 16:19:42 by moabdels         ###   ########.fr       */
+/*   Updated: 2024/07/19 17:07:03 by moabdels         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	reset_list(t_list **list, t_list *clean_node, char *str)
 {
 	t_list	*temp_node;
 
-	if (*list == NULL)
+	if (list == NULL || *list == NULL)
 		return ;
 	while (*list)
 	{
@@ -104,7 +104,10 @@ int	len_to_next_line(t_list *list_node)
 		while (list_node->str_buf[index])
 		{
 			if (list_node->str_buf[index] == '\n')
-				return (++len);
+			{
+				++len;
+				return (len);
+			}
 			index++;
 			len++;
 		}
