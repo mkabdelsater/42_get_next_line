@@ -6,7 +6,7 @@
 /*   By: moabdels <moabdels@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 16:28:24 by moabdels          #+#    #+#             */
-/*   Updated: 2024/07/19 15:03:50 by moabdels         ###   ########.fr       */
+/*   Updated: 2024/07/19 15:22:21 by moabdels         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ int	found_newline(t_list *list_node)
 	return (0);
 }
 
-t_list	*find_last_node(t_list *list_node)
+t_list	*get_last_node(t_list *list_node)
 {
 	if (list_node == NULL)
 		return (NULL);

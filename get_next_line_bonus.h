@@ -6,7 +6,7 @@
 /*   By: moabdels <moabdels@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 16:28:21 by moabdels          #+#    #+#             */
-/*   Updated: 2024/07/19 15:04:48 by moabdels         ###   ########.fr       */
+/*   Updated: 2024/07/19 15:22:21 by moabdels         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ typedef struct s_list
 void	reset_list(t_list **list, t_list *clean_node, char *str);
 int		found_newline(t_list *list_node);
 void	polish_list(t_list **list);
-t_list	*find_last_node(t_list *list_node);
+t_list	*get_last_node(t_list *list_node);
 void	copy_str_to_node(t_list *list_node, char *str);
 int		len_to_next_line(t_list *list_node);
 char	*get_line_from_node(t_list *list_node);
