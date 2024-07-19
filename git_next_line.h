@@ -5,19 +5,37 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: moabdels <moabdels@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/16 13:18:14 by moabdels          #+#    #+#             */
-/*   Updated: 2024/07/16 14:50:56 by moabdels         ###   ########.fr       */
+/*   Created: 2024/07/16 16:28:21 by moabdels          #+#    #+#             */
+/*   Updated: 2024/07/19 15:06:01 by moabdels         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/**
- * basic ideas :
- * * we need to get the the next line from a file (i.e. anything)
- * * we need to somehow remember where we stopped when reading from a file
- * * * this makes it obvious why reading from a file that's been modified is problematic
- * ? we need to store a cursor that points to the last line that we got
- * ? where? the input file itself? the program (system file) ? the process file?
- * ! Answer : the file descriptor's offset!
- * ? what is a static variable ???
- * ! Answer : a variable with program lifetime but function bound scope
- */
+#ifndef GET_NEXT_LINE_BONUS_H
+# define GET_NEXT_LINE_BONUS_H
+
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 10
+# endif
+
+# include <fcntl.h>
+# include <stdlib.h>
+# include <unistd.h>
+
+typedef struct s_list
+{
+	char			*str_buf;
+	struct s_list	*next;
+}	t_list;
+
+void	reset_list(t_list **list, t_list *clean_node, char *str);
+int		found_newline(t_list *list_node);
+void	polish_list(t_list **list);
+t_list	*find_last_node(t_list *list_node);
+void	copy_str_to_node(t_list *list_node, char *str);
+int		len_to_next_line(t_list *list_node);
+char	*get_line_from_node(t_list *list_node);
+void	append_node(t_list **list, char *buffer);
+void	populate_list(t_list **list, int fd);
+char	*get_next_line(int fd);
+
+#endif
