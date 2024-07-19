@@ -6,7 +6,7 @@
 /*   By: moabdels <moabdels@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 16:28:27 by moabdels          #+#    #+#             */
-/*   Updated: 2024/07/19 12:43:26 by moabdels         ###   ########.fr       */
+/*   Updated: 2024/07/19 15:03:49 by moabdels         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	polish_list(t_list **list)
 	new_str[j_index] = '\0';
 	cleaned_node->str_buf = new_str;
 	cleaned_node->next = NULL;
-	dealloc(list, cleaned_node, new_str);
+	reset_list(list, cleaned_node, new_str);
 }
 
 char	*get_line_from_node(t_list *list_node)

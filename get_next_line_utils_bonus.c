@@ -6,11 +6,34 @@
 /*   By: moabdels <moabdels@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 16:28:24 by moabdels          #+#    #+#             */
-/*   Updated: 2024/07/19 14:54:36 by moabdels         ###   ########.fr       */
+/*   Updated: 2024/07/19 15:03:50 by moabdels         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line_bonus.h"
+
+void	reset_list(t_list **list, t_list *clean_node, char *str)
+{
+	t_list	*temp_node;
+
+	if (*list == NULL)
+		return ;
+	while (*list)
+	{
+		temp_node = (*list)->next;
+		free((*list)->str_buf);
+		free((*list));
+		*list = temp_node;
+	}
+	*list = NULL;
+	if (clean_node->str_buf[0])
+		*list = clean_node;
+	else
+	{
+		free(str);
+		free(clean_node);
+	}
+}
 
 int	found_newline(t_list *list_node)
 {
