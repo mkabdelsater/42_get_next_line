@@ -6,7 +6,7 @@
 /*   By: moabdels <moabdels@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 16:28:27 by moabdels          #+#    #+#             */
-/*   Updated: 2024/07/19 18:04:34 by moabdels         ###   ########.fr       */
+/*   Updated: 2024/07/22 16:20:06 by moabdels         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,8 +107,8 @@ char	*get_next_line(int fd)
 	static t_list	*list;
 	char			*next_line;
 
-	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, &next_line, 0) < 0)
-		return (NULL);
+	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, &next_line, 0) < 0 || fd > 256)
+		return (0);
 	populate_list(&list, fd);
 	if (list == NULL)
 		return (NULL);
