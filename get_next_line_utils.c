@@ -6,7 +6,7 @@
 /*   By: moabdels <moabdels@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 16:28:24 by moabdels          #+#    #+#             */
-/*   Updated: 2024/07/23 13:14:30 by moabdels         ###   ########.fr       */
+/*   Updated: 2024/07/23 13:17:32 by moabdels         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,6 +89,8 @@ void	copy_str_to_node(t_list *list_node, char *str)
 	}
 	str[j_input_str_index] = '\0';
 }
+
+// fake change
 
 int	len_to_next_line(t_list *list_node)
 {
